@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="./css/modal.css">
+   <title>WebBooster-test</title>
+</head>
+<body>
+   <header id="header" class="header">
+      <container class="container">
+         <div class="menu">
+            <ul>
+               <li>
+                  <a href="">Главная</a>
+               </li>
+               <li>
+                  <a href="">Компания</a>
+               </li>
+               <li>
+                  <img src="./assets/wb-ani-2-white.gif" alt="">
+               </li>
+               <li>
+                  <a href="">Товары</a>
+               </li>
+               <li>
+                  <a href="">Контакты</a>
+               </li>
+            </ul>
+         </div>
+      </container>
+   </header>
+   <section id="section" class="section">
+      <container class="container">
+         <div class="modal-wrapper">
+            <div class="head"></div>
+            <div class="modal">
+              <div class="content">
+                  <div class="good-job">
+                    <p style="padding: 20px 0 0;color: gray;margin: 0;font-size: 14px;">ОСТАВЬТЕ СВОИ ДАННЫЕ И МЫ С ВАМИ СВЯЖЕМСЯ</p>
+                    <form class="form_modal_window" action="">
+                      <input type="text" name="name" placeholder="Ваше имя" required>
+                      <input type="email" name="email" placeholder="Ваш email" required>
+                      <input type="phone" name="phone" placeholder="Ваш телефон" required>
+                      <input class="form_sub" name="sub" type="submit" value="ОТПРАВИТЬ">
+                    </form>
+                    <div id="erconts"></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+         <div class="cart" id="cart">
+
+         </div>
+      </container>
+   </section>
+   <footer id="footer" class="footer">
+      <container class="container">
+         
+      </container>
+   </footer>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="script.js"></script>
+   <script>
+      //данный скрипт работает лишь на удаленном сервере
+      $(document).ready(function() { //запускаем метод после полной прогрузки страницы
+          $('.form_sub').click(function(){
+              $.ajax({
+                  type: "POST", //указываем что метод отправки POST
+                  url:"form.php", // указываем адрес обработчика
+                  data:$('.form_modal_window').serialize(), //указываем данные которые будут передаваться обработчику
+                /* Мы указываем id формы - $('#callbacks'), и методом serialize() забираем значения всех полей. */
+                  error:function(){$("#erconts").html("Произошла ошибка!");},
+                /* если произойдет ошибка в элементе с id erconts выведется сообщение*/
+                  beforeSend: function() { //то, что должно выводиться после успешной отправки, если задержка - текст "Идет отправка"
+                      $("#erconts").html("<p style='color: orangered;'>Идет отправка...</p>");
+                  },
+                  success: function(result){
+                    /* В случае удачной обработки и отправки выполнится следующий код*/
+                      $('#erconts').html(result);
+                      checkThis();
+                  }
+              });
+              return false;
+          });
+      });
+  </script>
+</body>
+</html>

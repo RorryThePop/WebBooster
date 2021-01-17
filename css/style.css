@@ -1,0 +1,88 @@
+body {
+   margin: 0;
+   padding: 0;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container {
+   width: 1170px;
+}
+.menu {
+   display: flex;
+   margin: auto;
+   justify-content: center;
+}
+
+.menu ul {
+   display: flex;
+   align-items: center;
+}
+
+.menu li {
+   padding-right: 60px;
+   list-style: none;
+   font-size: 16px;
+}
+
+.menu a:hover{
+   color: red;
+   text-decoration: underline;
+}
+
+.menu a {
+   text-decoration: none;
+   color: #000;
+   text-transform: uppercase;
+}
+
+.menu img {
+   width: 200px;
+   height: 150px;
+}
+
+.cart {
+   display: flex;
+   padding-top: 100px;
+}
+
+.cart_list {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 30px;
+}
+.cart_list img{
+   max-width: 300px;
+}
+.cart_item {
+   font-size: 16px;
+   max-width: 200px;
+   text-align: center;
+}
+
+.btn {
+   background-color: rgba(222 76 111);
+   padding: 10px 25px;
+   border-radius: 25px;
+   border-color: rgba(222 76 111);
+   color: #fff;
+}
+
+
+.btn:hover{
+   text-decoration: underline;
+}
+
+form {
+   margin: 0 auto;
+   width: 450px;
+   height: 250px;
+   padding: 20px;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82)
+   
+}
+
+.group {
+   margin: 10px;
+   padding: 5px;
+}
